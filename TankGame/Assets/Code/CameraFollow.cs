@@ -11,9 +11,13 @@ namespace TankGame
     {
 
         public GameObject _cameraTarget;
-        [Tooltip("Value clamped between 45 and 80 degrees.")]
+
+        [Tooltip("The camera distance is clamped between 4 and 24 units"), 
+            Range(4, 24)] // I'm clamping the value between 4 and 24 Unity units.
         public float _cameraDistance;
-        [Tooltip("Value clamped between 4 and 24 Unity units.")]
+
+        [Tooltip("The camera angle is clamped between 45 and 80 degrees"),
+            Range(45, 80)] // I'm clamping the value between 45 and 80 degrees.
         public float _cameraAngle;
 
         private float _currentCameraAngle { get; set; }
@@ -21,14 +25,14 @@ namespace TankGame
 
         public void SetAngle(float angle)
         {
-            // I'm clamping the value between 45 and 80 degrees.
-            _currentCameraAngle = Mathf.Clamp(angle, 45f, 80f);
+
+            _currentCameraAngle = angle;
         }
 
         public void SetDistance(float distance)
         {
-            // I'm clamping the value between 4 and 24 Unity units.
-            _currentCameraDistance = Mathf.Clamp(distance, 4f, 24f);
+
+            _currentCameraDistance = distance;
         }
 
         public void SetTarget(Transform targetTransform)
