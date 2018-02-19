@@ -9,9 +9,13 @@ namespace TankGame
 {
     public class CameraFollow : MonoBehaviour, ICameraFollow
     {
+
         public GameObject _cameraTarget;
-        public float _cameraDistance,
-            _cameraAngle;
+        [Tooltip("Value clamped between 45 and 80 degrees.")]
+        public float _cameraDistance;
+        [Tooltip("Value clamped between 4 and 24 Unity units.")]
+        public float _cameraAngle;
+
         private float _currentCameraAngle { get; set; }
         private float _currentCameraDistance { get; set; }
 

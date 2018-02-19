@@ -3,6 +3,7 @@
 /TankGame/[Oo]bj/
 /TankGame/[Bb]uild/
 /TankGame/[Bb]uilds/
+/TankGame/.vs/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
@@ -32,3 +33,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
