@@ -14,6 +14,11 @@ namespace TankGame
 		[SerializeField]
 		private Transform _shootingPoint;
 
+        /// <summary>
+        /// Accessor for getting the weapon's shooting point.
+        /// </summary>
+        public Transform ReturnShootingPoint { get { return _shootingPoint; } }
+
 		private Pool< Projectile > _projectiles;
 		private Unit _owner;
 		private bool _canShoot = true;

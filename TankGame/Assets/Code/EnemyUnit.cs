@@ -17,6 +17,9 @@ namespace TankGame
 		[SerializeField]
 		private float _shootingDistance;
 
+        [SerializeField]
+        private float _minimumDistanceToPlayer;
+
 		[SerializeField]
 		private Path _path;
 
@@ -29,12 +32,18 @@ namespace TankGame
 		private IList<AIStateBase> _states = new List< AIStateBase >();
 
 		public AIStateBase CurrentState { get; private set; }
+
 		// How far the enemy can "see" the player.
 		public float DetectEnemyDistance { get { return _detectEnemyDistance; } }
+
 		// The distance the enemy shoots the player.
 		public float ShootingDistance { get { return _shootingDistance; } }
-		// The player unit this enemy is trying to shoot at.
-		public PlayerUnit Target { get; set; }
+
+        // EnemyUnit shouldn't get closer to the player than this distance.
+        public float MinimumDistanceToPlayer { get { return _minimumDistanceToPlayer; } }
+
+        // The player unit this enemy is trying to shoot at.
+        public PlayerUnit Target { get; set; }
 		
 		public Vector3? ToTargetVector
 		{
@@ -65,6 +74,9 @@ namespace TankGame
 
 			FollowTargetState followTarget = new FollowTargetState( this );
 			_states.Add( followTarget );
+
+            ShootState shoot = new ShootState(this);
+            _states.Add( shoot );
 
 			CurrentState = patrol;
 			CurrentState.StateActivated();
@@ -112,5 +124,14 @@ namespace TankGame
 			//}
 			//return null;
 		}
-	}
+
+        private void OnDrawGizmos()
+        {
+            if (Weapon != null) {
+                Ray shootingPointRay = new Ray(Weapon.ReturnShootingPoint.transform.position, Weapon.ReturnShootingPoint.transform.up);
+                Gizmos.color = Color.red;
+                Gizmos.DrawRay(shootingPointRay);
+            }
+        }
+    }
 }

@@ -16,8 +16,10 @@ namespace TankGame.AI
 	{
 		// The state related to this object.
 		public AIStateType State { get; protected set; }
+
 		// The target states to which we can transition from this state.
 		public IList<AIStateType> TargetStates { get; protected set; }
+
 		// The owner Unit of this state (Unit is the state controller class)
 		public EnemyUnit Owner { get; protected set; }
 

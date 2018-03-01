@@ -39,6 +39,7 @@ namespace TankGame.AI
 			float sqrDistanceToPlayer = toPlayerVector.sqrMagnitude;
 			if ( sqrDistanceToPlayer < SqrShootingDistance )
 			{
+                //Debug.Log("Within shooting distance!");
 				return Owner.PerformTransition( AIStateType.Shoot );
 			}
 
