@@ -18,10 +18,6 @@ namespace TankGame
 		void Move( Vector3 direction );
 
 		// Turns towards the target point in the game world.
-
 		void Turn( Vector3 target );
-
-        // For rotating objects in place.
-        void RotateTowards(Vector3 target);
 	}
 }

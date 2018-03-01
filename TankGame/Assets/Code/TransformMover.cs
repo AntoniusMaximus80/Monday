@@ -48,18 +48,5 @@ namespace TankGame
 			position += movement;
 			transform.position = position;
 		}
-
-        //Vector3 targetDir = target.position - transform.position;
-        //float step = speed * Time.deltaTime;
-        //Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-        //Debug.DrawRay(transform.position, newDir, Color.red);
-        //transform.rotation = Quaternion.LookRotation(newDir);
-
-        public void RotateTowards(Vector3 target)
-        {
-            Vector3 targetDirection = target - transform.position;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, _turnSpeed * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-        }
     }
 }
